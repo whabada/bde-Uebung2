@@ -28,7 +28,7 @@ class WordMapper extends Mapper <Text, Text, Text, Text>{
 	 */
 	public void map(Text key, Text value,  Context context) throws IOException, InterruptedException{
 
-		String [] values = value.toString().split(",");//receivces row from input file
+		String [] values = value.toString().split("\t");//receivces row from input file
 
 		for (int i=0; i<values.length; i++){
 			word.set(values[i]);

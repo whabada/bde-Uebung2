@@ -1,5 +1,6 @@
 package de.bl.hadoop;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -15,8 +16,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class Main {
 		public static void main(String[] args) throws Exception {
-	//	Configuration conf = new Configuration();
-		Job job = Job.getInstance();
+		Configuration conf = new Configuration();
+		Job job = Job.getInstance(conf);
 		job.setJarByClass(Main.class);
 		job.setMapperClass(WordMapper.class);
 		job.setReducerClass(TranslationsReducer.class);
