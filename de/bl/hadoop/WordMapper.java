@@ -28,13 +28,13 @@ class WordMapper extends Mapper <Text, Text, Text, Text>{
 	 */
 	public void map(Text key, Text value,  Context context) throws IOException, InterruptedException{
 
-		StringTokenizer itr = new StringTokenizer(value.toString(),","); //receivces row from input file
-		while (itr.hasMoreTokens()){
+		String [] values = value.toString().split(",");//receivces row from input file
 
-			word.set(itr.nextToken());
+		for (int i=0; i<values.length; i++){
+			word.set(values[i]);
 			context.write(key, word);
 		}
 	}
-	
+
 
 }
