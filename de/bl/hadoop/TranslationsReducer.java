@@ -12,13 +12,13 @@ import java.io.IOException;
 
 public class TranslationsReducer extends Reducer<Text, Text, Text, Text> {
 
-	private Text result = new Text(); //Initiate result Text 
+	private Text result = new Text();
 
 	@Override
 	protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 		String translations = "";
 
-		// For each val in Itererable values, add word to translation String, seperated by |  
+		// fuer jeden val in values wird ein String an translation gehangen, getrennt durch |  
 		for (Text val : values) {
 			translations += "|" + val.toString();
 		}
